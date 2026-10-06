@@ -3,73 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu site - Versão 3 — corrigida</title>
+  <title>Meu Projeto DevOps - Tema Corinthians</title>
 
   <style>
+    :root {
+      --preto: #0b0b0b;
+      --preto-suave: #161616;
+      --branco: #ffffff;
+      --cinza-claro: #f3f3f3;
+      --cinza-medio: #c9c9c9;
+      --cinza-escuro: #555555;
+      --vermelho: #d71920;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
       display: grid;
       place-items: center;
       font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-      background: #2f4f4f;
+      background:
+        radial-gradient(circle at top left, rgba(215, 25, 32, 0.18), transparent 28%),
+        linear-gradient(135deg, #050505 0%, #151515 55%, #262626 100%);
       padding: 1rem;
+      color: var(--branco);
     }
 
     .cartao {
-      background: #fff;
+      position: relative;
+      overflow: hidden;
+      background: var(--branco);
+      border: 2px solid var(--preto);
       border-radius: 20px;
       padding: 2.5rem;
-      max-width: 520px;
+      max-width: 560px;
       width: 100%;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
       text-align: center;
-      color: #1d1d1f;
+      color: var(--preto);
     }
 
-    .emoji {
-      font-size: 4rem;
+    .cartao::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 8px;
+      background: linear-gradient(
+        90deg,
+        var(--preto) 0 42%,
+        var(--vermelho) 42% 58%,
+        var(--preto) 58% 100%
+      );
+    }
+
+    .escudo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 1rem;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--preto);
+      color: var(--branco);
+      border: 4px solid var(--cinza-claro);
+      box-shadow: 0 0 0 3px var(--preto);
+      font-weight: 900;
+      font-size: 1.4rem;
+      letter-spacing: .08em;
     }
 
     h1 {
-      margin: .5rem 0;
-      color: #2f4f4f;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 2.3rem;
+      margin: .5rem 0 .75rem;
+      color: var(--preto);
+      font-size: 2.2rem;
+      line-height: 1.1;
+    }
+
+    .destaque {
+      color: var(--vermelho);
+    }
+
+    .subtitulo {
+      margin: 0 auto;
+      max-width: 430px;
+      color: var(--cinza-escuro);
+      line-height: 1.6;
     }
 
     .versao {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 12px;
-      background: #f2f2f7;
+      margin-top: 1.75rem;
+      padding: 1.1rem 1.2rem;
+      border-radius: 14px;
+      background: var(--cinza-claro);
+      border-left: 5px solid var(--vermelho);
       text-align: left;
-      line-height: 1.8;
+      line-height: 1.9;
+      color: var(--preto-suave);
     }
 
     code {
-      background: #e5e5ea;
-      padding: 2px 6px;
+      background: #dddddd;
+      color: var(--preto);
+      padding: 3px 7px;
       border-radius: 6px;
+      font-weight: 700;
     }
 
     footer {
-      margin-top: 1.5rem;
+      margin-top: 1.75rem;
       padding-top: 1rem;
-      border-top: 1px solid #e5e5ea;
-      color: #6e6e73;
+      border-top: 1px solid var(--cinza-medio);
+      color: var(--cinza-escuro);
       font-size: .85rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .cartao {
+        padding: 2rem 1.25rem;
+      }
+
+      h1 {
+        font-size: 1.85rem;
+      }
+
+      .escudo {
+        width: 72px;
+        height: 72px;
+        font-size: 1.2rem;
+      }
     }
   </style>
 </head>
 
 <body>
   <main class="cartao">
-    <div class="emoji">🚀</div>
+    <div class="escudo" aria-label="Identidade visual inspirada no Corinthians">SCCP</div>
 
-    <h1>Meu Projeto DevOps</h1>
+    <h1>Meu Projeto <span class="destaque">DevOps</span></h1>
 
-    <p>O erro foi corrigido e o robô publicou de novo.</p>
+    <p class="subtitulo">
+      Pipeline atualizado com uma identidade visual inspirada nas cores do Corinthians:
+      preto, branco, cinza e detalhes em vermelho.
+    </p>
 
     <div class="versao">
       🤖 <strong>Publicado pelo robô em:</strong> __DATA__<br>
@@ -79,7 +159,7 @@
 
     <footer>
       🎓 UNINOVE · Automação de Processos · DevOps<br>
-      Prof. Marcelino Dias da Silva
+      Prof. Marcelino Dias da Silva<br>
     </footer>
   </main>
 </body>
