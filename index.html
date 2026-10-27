@@ -23,8 +23,9 @@
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       font-family: system-ui, "Segoe UI", Roboto, sans-serif;
       background:
         radial-gradient(circle at top left, rgba(215, 25, 32, 0.18), transparent 28%),
@@ -45,6 +46,7 @@
       box-shadow: 0 24px 60px rgba(0, 0, 0, .5);
       text-align: center;
       color: var(--preto);
+      margin: 1.5rem auto 1rem;
     }
 
     .cartao::before {
@@ -122,6 +124,82 @@
       line-height: 1.5;
     }
 
+    .classificacao {
+      width: min(100%, 980px);
+      margin: 0 auto 2rem;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--branco);
+      color: var(--preto-suave);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+    }
+
+    .classificacao-cabecalho {
+      padding: 1.25rem 1.5rem .85rem;
+      border-top: 5px solid var(--vermelho);
+    }
+
+    .classificacao h2 {
+      margin: 0;
+      font-size: 1.35rem;
+    }
+
+    .classificacao p {
+      margin: .4rem 0 0;
+      color: var(--cinza-escuro);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+
+    .tabela-rolagem {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    th,
+    td {
+      padding: .62rem .7rem;
+      border-bottom: 1px solid #e8e8e8;
+      font-size: .84rem;
+    }
+
+    thead th {
+      background: var(--preto-suave);
+      color: var(--branco);
+      font-size: .75rem;
+      font-weight: 700;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #f7f7f7;
+    }
+
+    th:first-child,
+    td:first-child {
+      width: 3rem;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      text-align: left;
+    }
+
+    .classificacao-nota {
+      padding: .8rem 1.5rem 1rem;
+      border-top: 1px solid #e8e8e8;
+    }
+
     @media (max-width: 600px) {
       .cartao {
         padding: 2rem 1.25rem;
@@ -135,6 +213,20 @@
         width: 72px;
         height: 72px;
         font-size: 1.2rem;
+      }
+
+      .classificacao-cabecalho {
+        padding: 1rem 1rem .75rem;
+      }
+
+      .classificacao-nota {
+        padding-right: 1rem;
+        padding-left: 1rem;
+      }
+
+      th,
+      td {
+        padding: .58rem .55rem;
       }
     }
   </style>
@@ -162,5 +254,56 @@
       Prof. Marcelino Dias da Silva<br>
     </footer>
   </main>
+
+  <section class="classificacao" aria-labelledby="titulo-classificacao">
+    <div class="classificacao-cabecalho">
+      <h2 id="titulo-classificacao">Brasileirão Série A 2026</h2>
+      <p>Classificação após a rodada 32 · dados atualizados em 24/10/2026</p>
+    </div>
+
+    <div class="tabela-rolagem">
+      <table>
+        <caption style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;">Classificação do Campeonato Brasileiro Série A de 2026 após a rodada 32</caption>
+        <thead>
+          <tr>
+            <th scope="col">Pos.</th>
+            <th scope="col">Clube</th>
+            <th scope="col">Pts</th>
+            <th scope="col">J</th>
+            <th scope="col">V</th>
+            <th scope="col">E</th>
+            <th scope="col">D</th>
+            <th scope="col">GP</th>
+            <th scope="col">GC</th>
+            <th scope="col">SG</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Palmeiras</td><td>69</td><td>32</td><td>20</td><td>9</td><td>3</td><td>56</td><td>22</td><td>+34</td></tr>
+          <tr><td>2</td><td>Flamengo</td><td>67</td><td>31</td><td>20</td><td>7</td><td>4</td><td>61</td><td>25</td><td>+36</td></tr>
+          <tr><td>3</td><td>Cruzeiro</td><td>54</td><td>32</td><td>16</td><td>6</td><td>10</td><td>51</td><td>46</td><td>+5</td></tr>
+          <tr><td>4</td><td>Athletico-PR</td><td>54</td><td>32</td><td>15</td><td>9</td><td>8</td><td>50</td><td>38</td><td>+12</td></tr>
+          <tr><td>5</td><td>Fluminense</td><td>51</td><td>32</td><td>14</td><td>9</td><td>9</td><td>50</td><td>41</td><td>+9</td></tr>
+          <tr><td>6</td><td>Atlético-MG</td><td>50</td><td>31</td><td>14</td><td>8</td><td>9</td><td>42</td><td>35</td><td>+7</td></tr>
+          <tr><td>7</td><td>Bahia</td><td>50</td><td>32</td><td>13</td><td>11</td><td>8</td><td>45</td><td>40</td><td>+5</td></tr>
+          <tr><td>8</td><td>Santos</td><td>46</td><td>32</td><td>12</td><td>10</td><td>10</td><td>49</td><td>47</td><td>+2</td></tr>
+          <tr><td>9</td><td>São Paulo</td><td>43</td><td>32</td><td>12</td><td>7</td><td>13</td><td>37</td><td>36</td><td>+1</td></tr>
+          <tr><td>10</td><td>Red Bull Bragantino</td><td>41</td><td>32</td><td>11</td><td>8</td><td>13</td><td>39</td><td>38</td><td>+1</td></tr>
+          <tr><td>11</td><td>Botafogo</td><td>39</td><td>32</td><td>10</td><td>9</td><td>13</td><td>44</td><td>51</td><td>-7</td></tr>
+          <tr><td>12</td><td>Coritiba</td><td>39</td><td>31</td><td>10</td><td>9</td><td>12</td><td>38</td><td>49</td><td>-11</td></tr>
+          <tr><td>13</td><td>Vasco</td><td>38</td><td>31</td><td>10</td><td>8</td><td>13</td><td>39</td><td>45</td><td>-6</td></tr>
+          <tr><td>14</td><td>Vitória</td><td>38</td><td>32</td><td>10</td><td>8</td><td>14</td><td>35</td><td>46</td><td>-11</td></tr>
+          <tr><td>15</td><td>Mirassol</td><td>37</td><td>32</td><td>9</td><td>10</td><td>13</td><td>37</td><td>45</td><td>-8</td></tr>
+          <tr><td>16</td><td>Internacional</td><td>35</td><td>32</td><td>8</td><td>11</td><td>13</td><td>36</td><td>40</td><td>-4</td></tr>
+          <tr><td>17</td><td>Corinthians</td><td>33</td><td>32</td><td>8</td><td>9</td><td>15</td><td>34</td><td>42</td><td>-8</td></tr>
+          <tr><td>18</td><td>Grêmio</td><td>31</td><td>31</td><td>7</td><td>10</td><td>14</td><td>34</td><td>44</td><td>-10</td></tr>
+          <tr><td>19</td><td>Remo</td><td>26</td><td>32</td><td>5</td><td>11</td><td>16</td><td>34</td><td>50</td><td>-16</td></tr>
+          <tr><td>20</td><td>Chapecoense</td><td>21</td><td>31</td><td>4</td><td>9</td><td>18</td><td>32</td><td>63</td><td>-31</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="classificacao-nota">J = jogos; Pts = pontos; V = vitórias; E = empates; D = derrotas; GP/GC = gols pró/contra; SG = saldo de gols. Alguns clubes têm partidas adiadas. Fonte: <a href="https://www.cbf.com.br/futebol-brasileiro/tabelas/campeonato-brasileiro/serie-a/2026" target="_blank" rel="noopener noreferrer">CBF</a>.</p>
+  </section>
 </body>
 </html>
